@@ -6,4 +6,4 @@
 ## Installation
 
 -   After cloning the repository, run <code>npm install</code>
--   After installing the packages, run <code>npm start</code>. Use **PORT = 3000**
+-   After installing the packages, run <code>npm start</code>. Use **PORT = 5000**
