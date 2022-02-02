@@ -20,10 +20,6 @@ const getDataWeek = async (req, res, next) => {
 		today.getDate() - 7
 	);
 
-	console.log(
-		`select * from covid_data where time >= ${lastWeek.getTime()} AND time <= ${today.getTime()}`
-	);
-
 	try {
 		const results = await client.query(
 			`select * from covid_data where time >= ${lastWeek.getTime()} AND time <= ${today.getTime()}`
@@ -42,9 +38,6 @@ const getDataMonth = async (req, res, next) => {
 		today.getDate() - 30
 	);
 
-	console.log(
-		`select * from covid_data where time >= ${lastMonth.getTime()} AND time <= ${today.getTime()}`
-	);
 	try {
 		const results = await client.query(
 			`select * from covid_data where time >= ${lastMonth.getTime()} AND time <= ${today.getTime()}`
@@ -67,7 +60,6 @@ const threeDayAvg = async (req, res, next) => {
 			`select moving_average(*, 3)
 			from covid_data where time >= ${lastMonth.getTime()} AND time <= ${today.getTime()}`
 		);
-		console.table(results);
 		res.json({ results: results });
 	} catch (err) {
 		console.log(err);
